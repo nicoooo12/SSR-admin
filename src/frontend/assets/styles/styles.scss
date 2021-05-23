@@ -1,0 +1,206 @@
+@import './Vars.scss';
+
+//*regular: 400 /  semi-bold: 600 / bold: 700*/
+
+%Typography-div{
+  margin: 100px;
+}
+%Typography-title{
+  color: $greyscale_label;
+  font-size: 16px;
+  line-height: 32px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+%Typography-info{
+  color: $greyscale_label;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  font-weight: 400;
+}
+%Typography-text-DL{
+  font-size: 64px;
+  line-height: 66px;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+%Typography-text-DLB{
+  font-size: 64px;
+  line-height: 66px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+%Typography-text-DM{
+  font-size: 48px;
+  line-height: 50px;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+%Typography-text-DMB{
+  font-size: 48px;
+  line-height: 50px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+%Typography-text-DS{
+  font-size: 32px;
+  line-height: 34px;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+%Typography-text-DSB{
+  font-size: 32px;
+  line-height: 34px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+%Typography-text-TL{
+  font-size: 24px;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+  font-weight: 400;
+}
+%Typography-text-LL{
+  font-size: 24px;
+  line-height: 38px;
+  letter-spacing: 0.75px;
+  font-weight: 600;
+}
+%Typography-text-TM{
+  font-size: 18px;
+  line-height: 34px;
+  letter-spacing: 0.75px;
+  font-weight: 400;
+}
+%Typography-text-LM{
+  font-size: 18px;
+  line-height: 34px;
+  letter-spacing: 0.75px;
+  font-weight: 600;
+}
+%Typography-text-TS{
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 0.75px;
+  font-weight: 400;
+}
+%Typography-text-LS{
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 0.75px;
+  font-weight: 600;
+}
+%Typography-text-TXS{
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  font-weight: 400;
+}
+%Typography-text-LXS{
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  font-weight: 600;
+}
+
+@media (max-width: $mediaWidth1){
+  %Typography-title{
+    color: $greyscale_label;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 3px;
+    font-weight: 700;
+  }
+  %Typography-info{
+    color: $greyscale_label;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0px;
+    font-weight: 400;
+  }
+  %Typography-text-DL{
+    font-size: 48px;
+    line-height: 50px;
+    letter-spacing: 1px;
+    font-weight: 400;
+  }
+  %Typography-text-DLB{
+    font-size: 48px;
+    line-height: 50px;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  %Typography-text-DM{
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: 1px;
+    font-weight: 400;
+  }
+  %Typography-text-DMB{
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  %Typography-text-DS{
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 1px;
+    font-weight: 400;
+  }
+  %Typography-text-DSB{
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  %Typography-text-TL{
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    font-weight: 400;
+  }
+  %Typography-text-LL{
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    font-weight: 600;
+  }
+  %Typography-text-TM{
+    font-size: 16px;
+    line-height: 34px;
+    letter-spacing: 0.75px;
+    font-weight: 400;
+  }
+  %Typography-text-LM{
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    font-weight: 600;
+  }
+  %Typography-text-TS{
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    font-weight: 400;
+  }
+  %Typography-text-LS{
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    font-weight: 600;
+  }
+  %Typography-text-TXS{
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.75px;
+    font-weight: 400;
+  }
+  %Typography-text-LXS{
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.75px;
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,53 @@
+@import '../Index.scss';
+
+.banner-img{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  margin: 10px 50px;
+  &>.img{
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+  &>.button, &>a>.button{
+    &:hover{
+      background: black;
+    }
+    &:active{
+      background: rgb(54, 54, 54);
+    }
+    &:focus{
+      box-shadow: 0 0 0 8px #0000003b;  
+    }
+    position: relative;
+    /* right: 37.5%; */
+    top: -100px;
+    // width: 120px;
+    // height: 35px;
+    background: black;
+    // border: none;
+    // color: white;
+    border-radius: 15px;
+    // font-family: "Comic Sans MS", "Comic Sans", cursive;
+
+  }
+}
+
+@media (max-width: $mediaWidth1){
+  .banner-img{
+    margin: 10px 10px;
+    &>.button, &>a>.button{
+      top: -40px;
+    }
+  }
+}
+@media (max-width: $mediaWidthMobileS){
+  .banner-img{
+    margin: 10px 10px;
+    &>.button, &>a>.button{
+      top: -25px;
+    }
+  }
+}
