@@ -1,0 +1,113 @@
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+
+import HeaderB from '../components/Header-B';
+// import Header from '../components/Header';
+// // import Carton from '../components/Carton';
+// import Titulo from '../components/Title';
+// import Button from '../components/forms/Button';
+// import { Link } from 'react-router-dom';
+
+import '../assets/styles/containers/Ordenes.scss';
+
+const App = ({ user, history, catalogo, ordenes })=> {
+  const [first, setFirst] = useState(true);
+  useEffect(()=>{
+    if (first) {
+      setFirst(false);
+      document.querySelector('#react').scrollTo(0, 0);
+    }
+  }, []);
+  if (!user.id) {
+    history.push('/');
+  }
+
+  //console.log(enProgreso, terminadas);
+
+  return (
+    <>
+      <HeaderB to='/' />
+      <div className='card p-3 h-50 w-100'>
+        <h1>Pedidos</h1>
+        <div className=''>
+          <table className='table table-striped table-hover'>
+            <thead>
+              <tr>
+                <th scope='col'>#</th>
+                <th scope='col'>User</th>
+                <th scope='col'>Code</th>
+                <th scope='col'>Estado</th>
+                <th scope='col'>Compra</th>
+                <th scope='col'>Imagen</th>
+                <th scope='col'>Total pago</th>
+                <th scope='col'>Comentario</th>
+                <th scope='col'> </th>
+              </tr>
+            </thead>
+            <tbody>
+
+              {
+                ordenes.map((e, index)=>{
+
+                  return (
+                    <tr key={index}>
+                      <th scope='row'>{index + 1}</th>
+                      <td>{e.username}</td>
+                      <td>{e.code}</td>
+                      <td>{e.estado === 2 ? 'iniciada' : 'En revisión'}</td>
+                      <td>
+                        <ul>
+                          {
+                            e.compra.map((i, index2)=>{
+                              console.log(i);
+                              return (
+                                <li key={index2}>
+                                  {catalogo.filter((o)=>{return o.serie === i.serie;})[0].titulo}: {i.cantidad}
+                                </li>
+                              );
+                            })
+                          }
+                        </ul>
+                      </td>
+                      <td>
+                        {e.canvasUrl ?
+                          <>
+                            <a href={e.imgUrl} target='_blank' rel='noopener noreferrer'>Open</a>
+                          </> :
+                          <>false</>
+                        }
+                      </td>
+                      <td>${e.totalPago}</td>
+                      <td className='w-25'>{e.message ? e.message : <button className='btn btn-secondary d-flex m-1' >Agregar Comentario</button>}</td>
+                      <td>
+                        <button className='btn btn-secondary d-flex m-1' >Editar Orden</button>
+                        {/* <button className='btn btn-warning d-flex m-1' >Agregar Comentario</button> */}
+                        <button className='btn btn-success d-flex m-1' >Finalizar Orden</button>
+                      </td>
+                    </tr>
+                  );
+
+                })
+              }
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const mapSateToProps = (state)=>{
+  return {
+    user: state.user,
+    ordenes: state.ordenes,
+    catalogo: state.catalogos,
+  };
+};
+
+const mapDispatchToProps = {
+  // updateState,
+};
+
+export default connect(mapSateToProps, mapDispatchToProps)(App);

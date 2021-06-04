@@ -50,14 +50,15 @@
 
       &>.hidden-data{
         width: 100%;
-        overflow: scroll;
+        overflow-x: scroll;
         &>.data{
+          
           display: flex;
           width: calc(100% * 3);
           flex-direction: row;
           flex-wrap: nowrap;
           position: relative;
-          justify-content: center;
+          justify-content: space-between;
           &>.item{
             height: 100%;
             max-width: 400px;

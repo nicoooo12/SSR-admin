@@ -75,11 +75,15 @@ const setResponse = (html, preloadedState, nonce) => {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8" />
     <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <title>Bingoloteando</title>
   </head>
   <body>
+    <script nonce=${nonce} src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script nonce=${nonce} src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script nonce=${nonce} src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <div id="react">${html}</div>
     <script id="preloadedState" nonce=${nonce}>
       window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
@@ -104,17 +108,17 @@ const renderApp = async (req, res) => {
   } catch (error) {
 
   }
-  let cartones;
+
+  let play;
   try {
-    const { data: dataCartones } = await axios({
+    const { data } = await axios({
       method: 'get',
       headers: { Authorization: `Bearer ${token}` },
-      url: `${config.apiUrl}/api/cartones/mys`,
+      url: `${config.apiUrl}/api/play`,
     });
-    cartones = dataCartones.data;
-    // myOrden = dataOrden.data.estado;
+    play = data.data;
   } catch (error) {
-    cartones = [];
+    play = {};
   }
 
   let user;
@@ -134,57 +138,29 @@ const renderApp = async (req, res) => {
     user = {};
   }
 
-  let myEndsOrden;
+  let Ordenes;
   try {
     const { data: dataOrden } = await axios({
       method: 'get',
       headers: { Authorization: `Bearer ${token}` },
-      url: `${config.apiUrl}/api/orden/terminadas/my`,
+      url: `${config.apiUrl}/api/orden/`,
     });
-    myEndsOrden = dataOrden.data;
+    Ordenes = dataOrden.data;
   } catch (error) {
-    myEndsOrden = [];
-  }
-  let myInProgressOrden;
-  try {
-    const { data: dataOrden } = await axios({
-      method: 'get',
-      headers: { Authorization: `Bearer ${token}` },
-      url: `${config.apiUrl}/api/orden/my`,
-    });
-    myInProgressOrden = dataOrden.data[0] ? dataOrden.data[0] : {};
-  } catch (error) {
-    myInProgressOrden = {};
+    Ordenes = [];
   }
 
   const initialState = {
     'user': user,
     'redirect': '',
-    'cartonesUser': cartones[0] ? cartones.map((e)=>{
-      return {
-        ...e,
-        play: [[false, false, false, false, false], [false, false, false, false, false], [false, false, false, false, false], [false, false, false, false, false], [false, false, false, false, false]],
-      };
-    }) : [],
-    'ordenes': {
-      enProgreso: myInProgressOrden,
-      terminadas: myEndsOrden,
-    },
+    'ordenes': Ordenes,
     'catalogos': catalogo,
-    'play': {
-      estado: 0,
-      serieJuego: 1,
-    },
+    'play': play,
     'infoPago': {
       numeroCuenta: config.pagoNumeroCuenta,
       rut: config.pagoRut,
       titular: config.pagoTitular,
       banco: config.pagoBanco,
-    },
-    'carrito': {
-      active: false,
-      state: (myInProgressOrden.user ? 1 : 0),
-      data: [],
     },
   };
 
@@ -207,7 +183,7 @@ const renderApp = async (req, res) => {
 
 require('./router/auth')(app);
 require('./router/api')(app);
-require('./router/sockets')(app, io);
+// require('./router/sockets')(app, io);
 app.get('*', renderApp);
 server.listen(config.port, () => {
   console.log(`Server listening on port ${config.port} in ${config.dev ? 'development' : 'production'} mode`);

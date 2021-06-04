@@ -25,39 +25,39 @@ const App = (props)=> {
               </thead>
               <tbody>
                 <tr>
-                  <td>{props.data[0][0]}</td>
-                  <td>{props.data[1][0]}</td>
-                  <td>{props.data[2][0]}</td>
-                  <td>{props.data[3][0]}</td>
-                  <td>{props.data[4][0]}</td>
+                  <td style={{ background: props.lanzados[+props.data[0][0] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[0][0]}</td>
+                  <td style={{ background: props.lanzados[+props.data[1][0] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[1][0]}</td>
+                  <td style={{ background: props.lanzados[+props.data[2][0] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[2][0]}</td>
+                  <td style={{ background: props.lanzados[+props.data[3][0] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[3][0]}</td>
+                  <td style={{ background: props.lanzados[+props.data[4][0] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[4][0]}</td>
                 </tr>
                 <tr>
-                  <td>{props.data[0][1]}</td>
-                  <td>{props.data[1][1]}</td>
-                  <td>{props.data[2][1]}</td>
-                  <td>{props.data[3][1]}</td>
-                  <td>{props.data[4][1]}</td>
+                  <td style={{ background: props.lanzados[+props.data[0][1] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[0][1]}</td>
+                  <td style={{ background: props.lanzados[+props.data[1][1] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[1][1]}</td>
+                  <td style={{ background: props.lanzados[+props.data[2][1] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[2][1]}</td>
+                  <td style={{ background: props.lanzados[+props.data[3][1] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[3][1]}</td>
+                  <td style={{ background: props.lanzados[+props.data[4][1] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[4][1]}</td>
                 </tr>
                 <tr>
-                  <td>{props.data[0][2]}</td>
-                  <td>{props.data[1][2]}</td>
-                  <td>{props.data[2][2]}</td>
-                  <td>{props.data[3][2]}</td>
-                  <td>{props.data[4][2]}</td>
+                  <td style={{ background: props.lanzados[+props.data[0][2] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[0][2]}</td>
+                  <td style={{ background: props.lanzados[+props.data[1][2] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[1][2]}</td>
+                  <td style={{ background: 'red' }}>x</td>
+                  <td style={{ background: props.lanzados[+props.data[3][2] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[3][2]}</td>
+                  <td style={{ background: props.lanzados[+props.data[4][2] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[4][2]}</td>
                 </tr>
                 <tr>
-                  <td>{props.data[0][3]}</td>
-                  <td>{props.data[1][3]}</td>
-                  <td>{props.data[2][3]}</td>
-                  <td>{props.data[3][3]}</td>
-                  <td>{props.data[4][3]}</td>
+                  <td style={{ background: props.lanzados[+props.data[0][3] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[0][3]}</td>
+                  <td style={{ background: props.lanzados[+props.data[1][3] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[1][3]}</td>
+                  <td style={{ background: props.lanzados[+props.data[2][3] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[2][3]}</td>
+                  <td style={{ background: props.lanzados[+props.data[3][3] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[3][3]}</td>
+                  <td style={{ background: props.lanzados[+props.data[4][3] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[4][3]}</td>
                 </tr>
                 <tr>
-                  <td>{props.data[0][4]}</td>
-                  <td>{props.data[1][4]}</td>
-                  <td>{props.data[2][4]}</td>
-                  <td>{props.data[3][4]}</td>
-                  <td>{props.data[4][4]}</td>
+                  <td style={{ background: props.lanzados[+props.data[0][4] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[0][4]}</td>
+                  <td style={{ background: props.lanzados[+props.data[1][4] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[1][4]}</td>
+                  <td style={{ background: props.lanzados[+props.data[2][4] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[2][4]}</td>
+                  <td style={{ background: props.lanzados[+props.data[3][4] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[3][4]}</td>
+                  <td style={{ background: props.lanzados[+props.data[4][4] - 1] === 1 ? 'red' : 'transparent' }}>{props.data[4][4]}</td>
                 </tr>
               </tbody>
             </table>

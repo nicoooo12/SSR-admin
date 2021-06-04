@@ -59,6 +59,11 @@ const reducer = (state, action) => {
         redirect: action.payload,
       };
 
+    case 'UPDATE_PLAY':
+      return {
+        ...state,
+        play: { ...state.play, action },
+      };
     case 'LOGIN_REQUEST':
     case 'REGISTER_REQUEST':
     case 'LOGOUT_REQUEST':

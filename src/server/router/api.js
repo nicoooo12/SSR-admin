@@ -106,6 +106,36 @@ module.exports = function (app) {
     }
   });
 
+  router.get('/cartones/:correo', async (req, res, next)=>{
+    const { token } = req.cookies;
+    try {
+      const { data: dataOrden } = await axios({
+        method: 'get',
+        headers: { Authorization: `Bearer ${token}` },
+        url: `${config.apiUrl}/api/auth/${req.params.correo}`,
+      });
+
+      const { data: carton } = await axios({
+        method: 'get',
+        headers: { Authorization: `Bearer ${token}` },
+        url: `${config.apiUrl}/api/cartones/user/${dataOrden.data.id}`,
+      });
+
+      // console.log(dataOrden);
+
+      res.json({
+        data: {
+          name: dataOrden.data.name,
+          carton: carton.data,
+        },
+      }).status(200);
+
+    } catch (error) {
+      // console.log(error.request.data);
+      next(error);
+    }
+  });
+
   app.use(express.raw({ type: 'application/octet-stream' }));
   router.post('/createCanvas', async (req, res, next)=>{
     const { token } = req.cookies;

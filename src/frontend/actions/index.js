@@ -63,6 +63,11 @@ export const updateStateReducer = (payload) => ({
   payload,
 });
 
+export const updatePlay = (payload) => ({
+  type: 'UPDATE_PLAY',
+  payload,
+});
+
 export const setError = (payload) => ({
   type: 'SET_ERROR',
   payload,
@@ -175,6 +180,24 @@ export const updateState = () => {
         console.log('[updateState]', data.data);
         // dispatch(registerRequest(data.user));
         dispatch(updateStateReducer(data.data));
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch(setError(error));
+      });
+  };
+};
+
+export const getUser = (correo, fnCallBack) => {
+  return (dispatch) => {
+    axios({
+      url: `/api/cartones/${correo}`,
+      method: 'get',
+    })// {email, password}
+      .then(({ data }) => {
+        console.log('[updateState]', data.data);
+        fnCallBack(data);
+        // dispatch(registerRequest(data.user));
       })
       .catch((error) => {
         console.log(error);

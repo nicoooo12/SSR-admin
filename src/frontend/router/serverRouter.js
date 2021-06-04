@@ -3,7 +3,9 @@ import Cartones from '../containers/Cartones';
 import Ordenes from '../containers/Ordenes';
 import Play from '../containers/Play';
 import SignIn from '../containers/SignIn';
+import Bingos from '../containers/Bingos';
 import SignUp from '../containers/SignUp';
+import Pedidos from '../containers/Pedidos';
 // import Styles from '../containers/Styles';
 // import Notfound from '../containers/Notfound';
 
@@ -16,6 +18,11 @@ const routers = (isLogged)=>{
     },
     {
       exact: true,
+      path: '/pedidos',
+      component: Pedidos,
+    },
+    {
+      exact: true,
       path: '/cartones',
       component: Cartones,
     },
@@ -23,6 +30,11 @@ const routers = (isLogged)=>{
       exact: true,
       path: '/ordenes',
       component: Ordenes,
+    },
+    {
+      exact: true,
+      path: '/bingos',
+      component: Bingos,
     },
     {
       exact: true,

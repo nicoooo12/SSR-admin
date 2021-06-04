@@ -90,36 +90,6 @@ const App = ({ user, updateState })=> {
                       </div>
                     </li>
                     <li>
-                      Comprar
-                      <div style={{ transform: 'rotate(180deg)' }}>
-                        <Link to='/catalogo'>
-                          <ButtonIcon size='small' typebutton='subtle' />
-                        </Link>
-                      </div></li>
-                    <li>
-                      Mis cartones
-                      <div style={{ transform: 'rotate(180deg)' }}>
-                        <Link to='/cartones'>
-                          <ButtonIcon size='small' typebutton='subtle' />
-                        </Link>
-                      </div>
-                    </li>
-                    <li>
-                      Mis ordenes
-                      <div style={{ transform: 'rotate(180deg)' }}>
-                        <Link to='/ordenes'>
-                          <ButtonIcon size='small' typebutton='subtle' />
-                        </Link>
-                      </div>
-                    </li>
-                    <li>
-                      Ayuda
-                      <div style={{ transform: 'rotate(180deg)' }}>
-                        <Link to='/help'>
-                          <ButtonIcon size='small' typebutton='subtle' />
-                        </Link>
-                      </div></li>
-                    <li>
                       Salir de mi cuenta
                       <div style={{ transform: 'rotate(180deg)' }}>
                         <ButtonIcon size='small' typebutton='subtle' onClick={logoutHandler} />
@@ -135,28 +105,6 @@ const App = ({ user, updateState })=> {
                         </Link>
                       </div>
                     </li>
-                    <li>
-                      Registrarme
-                      <div style={{ transform: 'rotate(180deg)' }}>
-                        <Link to='/sign-up'>
-                          <ButtonIcon size='small' typebutton='subtle' />
-                        </Link>
-                      </div>
-                    </li>
-                    <li>
-                      Comprar
-                      <div style={{ transform: 'rotate(180deg)' }}>
-                        <Link to='/catalogo'>
-                          <ButtonIcon size='small' typebutton='subtle' />
-                        </Link>
-                      </div></li>
-                    <li>
-                      Ayuda
-                      <div style={{ transform: 'rotate(180deg)' }}>
-                        <Link to='/help'>
-                          <ButtonIcon size='small' typebutton='subtle' />
-                        </Link>
-                      </div></li>
                   </>
               }
             </ul>
@@ -225,9 +173,9 @@ const App = ({ user, updateState })=> {
                         <>
                           <p>Para comprar tus cartones y poder jugar debes crear primero una cuenta.</p>
                           <div>
-                            <Link to='/sign-up'>
+                            {/* <Link to='/sign-up'>
                               <Button>Register</Button>
-                            </Link>
+                            </Link> */}
                             <Link to='/sign-in'>
                               <Button typebutton='secondary'>Ingresar</Button>
                             </Link>

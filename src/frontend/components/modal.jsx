@@ -26,7 +26,7 @@ const App = ({ children, btn })=> {
 
   return (
     <>
-      <Button onClick={clickHandler} autoLogin={false} >{btn}</Button>
+      <Button onClick={clickHandler} autoLogin={false} size='small'>{btn}</Button>
       <div id='myModal' className='modal' ref={modal} >
         <div className='modal-content'>
           <span className='close' onClick={closeHandle}>&times;</span>
