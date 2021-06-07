@@ -17,7 +17,7 @@ import '../assets/styles/App.scss';
 
 const App = ({ isLogged, updateState }) => {
   const socket = io('https://bingoloteando.herokuapp.com/');
-  // socket.on('change', ()=>{
+  // socket.on('change', ()=>{                  Access-Control-Allow-Origin
   //   console.log('[changes in the State of socket]');
   //   updateState();
   //   socket.emit('ok');
