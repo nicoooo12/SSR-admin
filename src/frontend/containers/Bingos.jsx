@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-const App = ({ user, history, cartones, catalogo, socket })=> {
+const App = ({ user, history, catalogo, socket })=> {
   if (!user.id) {
     history.push('/');
   }
@@ -21,7 +21,7 @@ const App = ({ user, history, cartones, catalogo, socket })=> {
   const [ultimaB2, setUltimaB2] = useState('');
   const [ultimaC2, setUltimaC2] = useState('');
   const [reCount, setReCount] = useState(0);
-  const bg = '#F7F7FC'
+  const bg = '#F7F7FC';
 
   const sleep = (ms) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -84,7 +84,7 @@ const App = ({ user, history, cartones, catalogo, socket })=> {
     socket.on('init', (serie, numPremio)=>{
       const play = catalogo.filter((e)=>{return e.serie === serie;})[0];
       console.log(play, numPremio);
-      setPremio(play.premios[numPremio].nombre);
+      setPremio(play.premios[numPremio - 1].nombre);
       setColorP(play.color);
       setColorS('wheat');
       setTitulo(play.titulo);
@@ -255,40 +255,9 @@ const App = ({ user, history, cartones, catalogo, socket })=> {
           }
         </div>
 
-        <div className='item-center align-middle' style={{ position: 'relative', height: '100px', width: '100px', marginTop: '25px' }}>
-          <table className='table tb-border table-bordered' style={{ border: colorP, height: '100%', width: '100%', fontSize: '20px' }}>
-            <tbody>
-              <tr className='color' style={{ backgroundColor: colorP, color: 'white', fontWeight: 'bold' }}>
-                <td>
-                Total
-                </td>
-              </tr>
-              <tr>
-                <td className='numTotal'>
-                  -
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <div className='item-center align-middle' style={{ position: 'relative', height: '100px', width: '100px', marginTop: '25px' }}> </div>
 
-        <div className='item-center align-middle' style={{ position: 'relative', height: '100px', width: '100px', marginTop: '25px' }}>
-          <table className='table tb-border table-bordered' style={{ border: colorP, height: '100%', width: '100%', fontSize: '20px' }}>
-            <tbody>
-              <tr className='color' style={{ backgroundColor: colorP, color: 'white', fontWeight: 'bold' }}>
-                <td>
-                numero
-                </td>
-              </tr>
-              <tr>
-                <td className='numTotal'>
-                  <span id='numeroLanzar2' />
-                  <span id='numeroLanzar'>-</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <div className='item-center align-middle' style={{ position: 'relative', height: '100px', width: '100px', marginTop: '25px' }}> </div>
 
         <div className='item-center align-middle' style={{ position: 'relative', height: '163px', width: '529px', marginTop: '25px', display: 'inline-block' }}>
           <table className='table tb-border table-bordered' style={{ border: colorP, height: '100%', width: '100%', fontSize: '20px' }}>
@@ -299,7 +268,7 @@ const App = ({ user, history, cartones, catalogo, socket })=> {
                 </td>
               </tr>
               <tr className='text-center' style={{ fontSize: '25px' }}>
-                <td id='pre'>
+                <td id='pre' style={{ background: bg }}>
                   {premio}
                 </td>
               </tr>
@@ -310,7 +279,7 @@ const App = ({ user, history, cartones, catalogo, socket })=> {
           <table className='table tb-border table-bordered inv' style={{ border: colorP, height: '100%', width: '100%', fontSize: '20px' }}>
             <tbody>
               <tr className='color text-center' style={{ backgroundColor: colorP, color: 'white', fontWeight: 'bold', height: '10px' }}>
-                <td>
+                <td style={{ background: bg }}>
                   <h1 id='titulo' className='m-2'>{titulo}</h1>
                 </td>
               </tr>
@@ -327,19 +296,19 @@ const App = ({ user, history, cartones, catalogo, socket })=> {
                     Ultimas
                   </div>
                 </td>
-                <td className='td-ult fw-light' style={{ left: '80px', width: '200px' }}>
+                <td className='td-ult fw-light' style={{ left: '80px', width: '200px', background: bg }}>
                   <div className='my-3'>
                     <span id='numeroLanzadoA'>{ultimaA2}</span>
                     <span id='numeroLanzadoB'>{ultimaA}</span>
                   </div>
                 </td>
-                <td className='td-ult fw-light' style={{ left: '268px', width: '200px' }}>
+                <td className='td-ult fw-light' style={{ left: '268px', width: '200px', background: bg }}>
                   <div className='my-3'>
                     <span id='numeroLanzado2A'>{ultimaB2}</span>
                     <span id='numeroLanzado2B'>{ultimaB}</span>
                   </div>
                 </td>
-                <td className='td-ult fw-light' style={{ left: '456px', width: '200px' }}>
+                <td className='td-ult fw-light' style={{ left: '456px', width: '200px', background: bg }}>
                   <div className='my-3'>
                     <span id='numeroLanzado3A' >{ultimaC2}</span>
                     <span id='numeroLanzado3B' >{ultimaC}</span>
@@ -358,7 +327,6 @@ const App = ({ user, history, cartones, catalogo, socket })=> {
 const mapSateToProps = (state)=>{
   return {
     user: state.user,
-    cartones: state.cartonesUser,
     catalogo: state.catalogos,
   };
 };
