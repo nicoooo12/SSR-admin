@@ -20,21 +20,6 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 const server = require('http').createServer(app);
-const { Server } = require('socket.io');
-const { instrument } = require('@socket.io/admin-ui');
-const io = new Server(server, {
-  cors: {
-    origin: ['https://admin.socket.io'],
-  },
-});
-
-instrument(io, {
-  auth: {
-    type: 'basic',
-    username: config.socketUser,
-    password: config.socketPassword,
-  },
-});
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

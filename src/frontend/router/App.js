@@ -16,7 +16,7 @@ import { updateState } from '../actions';
 import '../assets/styles/App.scss';
 
 const App = ({ isLogged, updateState }) => {
-  const socket = io('ws://localhost:3001');
+  const socket = io('ws://bingoloteando.herokuapp.com/');
   // socket.on('change', ()=>{
   //   console.log('[changes in the State of socket]');
   //   updateState();
