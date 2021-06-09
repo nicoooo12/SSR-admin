@@ -169,7 +169,7 @@ const App = ({ user, history, play, updatePlay, catalogos, socket, getUser }) =>
                             // console.log(bingo.filter((o, i)=>i !== index));
                           }}
                         >Reject</button>
-                        <button type='button' className='btn btn-success' onClick={socket.emit('BingoGanador', e.username)}>Bingo</button>
+                        <button type='button' className='btn btn-success' onClick={()=>{socket.emit('BingoGanador', e.username);}}>Bingo</button>
                       </div>
                     </li>
                   );

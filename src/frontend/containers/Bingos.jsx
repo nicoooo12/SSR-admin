@@ -86,7 +86,7 @@ const App = ({ user, history, catalogo, socket })=> {
       console.log(play, numPremio);
       setPremio(play.premios[numPremio - 1].nombre);
       setColorP(play.color);
-      setColorS('wheat');
+      setColorS('#ED2E7E');
       setTitulo(play.titulo);
     });
     socket.on('lanzar', ()=>{
