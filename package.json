@@ -1,11 +1,11 @@
 {
-  "name": "bingoloteando-ssr-client",
+  "name": "bingoloteando-ssr-admin",
   "version": "0.0.1",
   "description": "app para realizar bingos benéficos",
   "main": "src/server/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nicoooo12/SSR-client"
+    "url": "https://github.com/nicoooo12/SSR-admin.git"
   },
   "engines": {
     "node": "14.17.x"
@@ -39,19 +39,19 @@
     "passport-http": "^0.3.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-redux": "^7.2.2",
     "react-hot-loader": "^4.13.0",
+    "react-redux": "^7.2.2",
     "react-router": "^5.2.0",
     "react-router-config": "^5.1.1",
+    "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
+    "dotenv": "^8.2.0",
     "redux-thunk": "^2.3.0",
     "socket.io": "^4.1.1",
+    "babel-loader": "^8.2.2",
     "socket.io-client": "^4.1.1",
     "uuid": "^8.3.2",
-    "webpack": "^5.24.4",
-    "babel-loader": "^8.2.2",
-    "dotenv": "^8.2.0",
-    "react-router-dom": "^5.2.0"
+    "webpack": "^5.24.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",

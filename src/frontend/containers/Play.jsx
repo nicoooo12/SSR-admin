@@ -100,19 +100,35 @@ const App = ({ user, history, play, updatePlay, catalogos, socket, getUser }) =>
 
           </div>
           <div className='w-50 d-flex justify-content-end flex-row flex-wrap'>
-            <div className={`${estado === 0 ? 'bg-danger' : estado === 1 ? 'bg-warning' : 'bg-success'} w-75 badge`} style={{ height: '20px' }} >{estado}</div>
-            <div className={`${estado === 0 ? 'bg-danger' : estado === 1 ? 'bg-warning' : 'bg-success'} w-75 badge`} style={{ height: '20px' }} >
+            <div className='w-100'>
+              {
+                catalogos.map((e, index)=>{
+                  return (
+                    <ul key={index} className='list-group m-1'>
+                      <li className='list-group-item d-flex'>
+                        <p>{e.titulo}</p>
+                        <button className={`btn ${e.enVenta ? 'btn-primary' : 'btn-secondary'} ms-2`} >En venta</button>
+                        <button className={`btn ${e.enVenta ? 'btn-secondary' : 'btn-danger'} ms-2`} >Out</button>
+                      </li>
+                    </ul>
+                  );
+                })
+              }
+            </div>
+            <div className={`${estado === 0 ? 'bg-danger' : estado === 1 ? 'bg-warning' : 'bg-success'} w-100 badge mt-3`} style={{ height: '20px' }} >{estado}</div>
+            <div className={`${estado === 0 ? 'bg-danger' : estado === 1 ? 'bg-warning' : 'bg-success'} w-100 badge`} style={{ height: '20px' }} >
               <span className='m-1' >Carton</span>
               <span className='m-1' >Mode</span>
             </div>
-            <div className={`${estado === 0 ? 'bg-danger' : estado === 1 ? 'bg-warning' : 'bg-success'} w-75 badge`} style={{ height: '20px' }} >
+            <div className={`${estado === 0 ? 'bg-danger' : estado === 1 ? 'bg-warning' : 'bg-success'} w-100 badge mb-3`} style={{ height: '20px' }} >
               <span className='m-1' >{serie}</span>
               <span className='m-1' >{mode}</span>
             </div>
-            <div className='btn-group me-2' role='group' aria-label='First group'>
+            <div className='btn-group me-2 w-100' role='group' aria-label='First group'>
               <button type='button' className='btn btn-danger' onClick={()=>{changeStateHandler(0);}} >Off</button>
               <button type='button' className='btn btn-warning' onClick={()=>{changeStateHandler(1);}} >Waiting</button>
               <button type='button' className='btn btn-success' onClick={()=>{changeStateHandler(2);}} >Play!</button>
+              <button type='button' className='btn btn-secondary' onClick={()=>{changeStateHandler(3);}} >Prueba</button>
             </div>
           </div>
         </div>
@@ -138,6 +154,7 @@ const App = ({ user, history, play, updatePlay, catalogos, socket, getUser }) =>
                   className='btn btn-primary'
                   onClick={
                     ()=>{
+                      socket.emit('ResetAllBingo');
                       setBingo([]);
                     }
                   }
@@ -191,7 +208,7 @@ const App = ({ user, history, play, updatePlay, catalogos, socket, getUser }) =>
                 <>
                   <h1>{userBingo.name}</h1>
                   <button className='btn btn-primary m-2' onClick={()=>{socket.emit('BingoGanador', userBingo.name);}}>win</button>
-                  <button className='btn btn-primary m-2' onClick={()=>{socket.emit('Reject', '29293821'); setUserBingo({});}}>Reject</button>
+                  <button className='btn btn-primary m-2' onClick={()=>{socket.emit('Reject', userBingo.id); setUserBingo({});}}>Reject</button>
                 </> : <></>
             }
             {

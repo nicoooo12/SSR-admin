@@ -141,11 +141,8 @@ const renderApp = async (req, res) => {
     'ordenes': Ordenes,
     'catalogos': catalogo,
     'play': play,
-    'infoPago': {
-      numeroCuenta: config.pagoNumeroCuenta,
-      rut: config.pagoRut,
-      titular: config.pagoTitular,
-      banco: config.pagoBanco,
+    'vars': {
+      api: config.apiUrl,
     },
   };
 

@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 import Icon from '../components/display/Icon';
 import Card from '../components/display/Card';
 
-import Img1 from '../assets/images/B.png';
+// import Img1 from '../assets/images/B.png';
 
 import '../assets/styles/containers/menu.scss';
 import '../assets/styles/containers/Home.scss';
@@ -134,16 +134,16 @@ const App = ({ user, updateState })=> {
                   </div>
                 </div>
                 <div className='info'>
-                  <h1>Titulo Evento</h1>
+                  {/* <h1>Titulo Evento</h1> */}
                   <p>Area de administración</p>
                   <Card>
-                    <div className='circule' >
+                    {/* <div className='circule' >
                       <div>
                         <div>
                           <img src={Img1}/>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                     {
                       user.id ?
                         <>

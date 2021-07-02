@@ -15,13 +15,8 @@ import { updateState } from '../actions';
 
 import '../assets/styles/App.scss';
 
-const App = ({ isLogged, updateState }) => {
-  const socket = io('https://bingoloteando.herokuapp.com/');
-  // socket.on('change', ()=>{                  Access-Control-Allow-Origin
-  //   console.log('[changes in the State of socket]');
-  //   updateState();
-  //   socket.emit('ok');
-  // });
+const App = ({ isLogged, api, updateState }) => {
+  const socket = io(api);
   socket.emit('admin');
   socket.on(isLogged ? isLogged : 'change-noSignIn', ()=>{
     console.log('[changes in the State of socket]');
