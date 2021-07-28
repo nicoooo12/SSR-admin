@@ -94,7 +94,8 @@ const App = ({ user, history, play, updatePlay, catalogos, socket, getUser }) =>
 
             <select className='form-select m-1' aria-label='Default select example' ref={selectMode}>
               <option serie='1'>Linea</option>
-              <option serie='2'>Carton completo</option>
+              <option serie='2'>letra</option>
+              <option serie='3'>Carton completo</option>
             </select>
             <button className='btn btn-primary m-1' onClick={()=>{changeSerieHandler(1);}}>Change</button>
 

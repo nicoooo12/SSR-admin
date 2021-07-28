@@ -37,22 +37,45 @@ const App = ({ user, history, catalogo, ordenes })=> {
               <div className='card w-50'>
                 <ul className='list-group'>
                   <li className='list-group-item'>
-                    User: {idOrden}
+                    User: {idOrden.username}
                   </li>
                   <li className='list-group-item'>
-                    Estado: {idOrden}
+                    user id: {idOrden.user}
                   </li>
                   <li className='list-group-item'>
-                    Compra: {idOrden}
+                    orden code: {idOrden.code}
                   </li>
                   <li className='list-group-item'>
-                    Imagen: {idOrden}
+                    Estado: {idOrden.estado === 2 ? 'iniciada' : 'En revisión'}
                   </li>
                   <li className='list-group-item'>
-                    Total pago: {idOrden}
+                    Compra:
+                    {
+                      idOrden.compra.map((i, index2)=>{
+                      // console.log(i);
+                        return (
+                          <li key={index2} className='list-group-item'>
+                            {catalogo.filter((o)=>{return o.serie === i.serie;})[0].titulo}: {i.cantidad}
+                          </li>
+                        );
+                      })
+                    }
                   </li>
                   <li className='list-group-item'>
-                    Comentario: {idOrden}
+                    Imagen:
+                    {
+                      idOrden.canvasUrl ?
+                        <>
+                          <a href={e.imgUrl} target='_blank' rel='noopener noreferrer'>Open</a>
+                        </> :
+                        <>false</>
+                    }
+                  </li>
+                  <li className='list-group-item'>
+                    Total pago: {idOrden.totalPago}
+                  </li>
+                  <li className='list-group-item'>
+                    Comentario: {idOrden.message ? idOrden.message : 'No mensaje' }
                   </li>
                 </ul>
               </div>
@@ -113,7 +136,7 @@ const App = ({ user, history, catalogo, ordenes })=> {
                             <td>${e.totalPago}</td>
                             <td className='w-25'>{e.message ? e.message : 'No mensaje' }</td>
                             <td>
-                              <button className='btn btn-primary d-flex m-1' onClick={()=>{setActiveOrden(true); setIdOrden(e._id);}}>Editar Orden</button>
+                              <button className='btn btn-primary d-flex m-1' onClick={()=>{setActiveOrden(true); setIdOrden(e);}}>Editar Orden</button>
                               {/* <button className='btn btn-warning d-flex m-1' >Agregar Comentario</button> */}
                               {/* <button className='btn btn-success d-flex m-1' >Finalizar Orden</button> */}
                             </td>
