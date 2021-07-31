@@ -66,7 +66,7 @@ const App = ({ user, history, catalogo, ordenes })=> {
                     {
                       idOrden.canvasUrl ?
                         <>
-                          <a href={e.imgUrl} target='_blank' rel='noopener noreferrer'>Open</a>
+                          <a href={idOrden.imgUrl} target='_blank' rel='noopener noreferrer'>Open</a>
                         </> :
                         <>false</>
                     }
