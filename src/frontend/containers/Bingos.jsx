@@ -259,7 +259,7 @@ const App = ({ user, history, catalogo, socket })=> {
 
         <div className='item-center align-middle' style={{ position: 'relative', height: '100px', width: '100px', marginTop: '25px' }}> </div>
 
-        <div className='item-center align-middle' style={{ position: 'relative', height: '163px', width: '529px', marginTop: '25px', display: 'inline-block' }}>
+        <div className='item-center align-middle' style={{ margin: '20px', position: 'relative', height: '163px', width: '529px', marginTop: '25px', display: 'inline-block' }}>
           <table className='table tb-border table-bordered' style={{ border: colorP, height: '100%', width: '100%', fontSize: '20px' }}>
             <tbody>
               <tr className='color text-center' style={{ backgroundColor: colorP, color: 'white', fontWeight: 'bold', height: '10px' }}>
@@ -279,7 +279,7 @@ const App = ({ user, history, catalogo, socket })=> {
           <table className='table tb-border table-bordered inv' style={{ border: colorP, height: '100%', width: '100%', fontSize: '20px' }}>
             <tbody>
               <tr className='color text-center' style={{ backgroundColor: colorP, color: 'white', fontWeight: 'bold', height: '10px' }}>
-                <td style={{ background: bg }}>
+                <td style={{ background: colorP }}>
                   <h1 id='titulo' className='m-2'>{titulo}</h1>
                 </td>
               </tr>
