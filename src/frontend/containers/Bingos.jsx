@@ -319,7 +319,7 @@ const App = ({ user, history, catalogo, socket })=> {
           </table>
         </div>
 
-        <div className='item-center align-middle' style={{ position: 'relative', height: '163px', width: '529px', marginTop: '25px', display: 'inline-block' }}>
+        <div className='item-center align-middle mb-4' style={{ position: 'relative', width: '529px', marginTop: '25px', display: 'inline-block' }}>
           <table className='table tb-border table-bordered' style={{ border: colorP, height: '100%', width: '100%', fontSize: '20px' }}>
             <thead>
               <tr className='color text-center' style={{ backgroundColor: colorP, color: 'white', fontWeight: 'bold', height: '10px' }}>
@@ -366,6 +366,7 @@ const App = ({ user, history, catalogo, socket })=> {
               </tr>
             </tbody>
           </table>
+          <p className=''>Linea</p>
         </div>
 
       </div>
