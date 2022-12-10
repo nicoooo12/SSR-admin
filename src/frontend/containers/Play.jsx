@@ -31,9 +31,9 @@ const App = ({ user, history, play, updatePlay, catalogos, socket, getUser }) =>
 
   const emailUser = useRef('');
 
-  if (!user.id) {
-    history.push('/');
-  };
+//   if (!user.id) {
+//     history.push('/');
+//   };
 
   const changeStateHandler = (e) =>{
     setEstado(e);
